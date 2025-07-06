@@ -1,70 +1,79 @@
-/* Base Reset */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f8fafc, #eef2ff);
+  padding: 0;
+  font-family: 'Rubik', Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+}
+
+.coming-soon-container {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-/* Container Styling */
-.app-container {
+.coming-soon-content {
+  background: rgba(255,255,255,0.12);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 3rem 2.5rem;
   text-align: center;
-}
-
-/* Gift Box */
-.gift-box {
-  position: relative;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  padding: 3rem 2rem;
+  margin: 2rem 1rem;
   max-width: 400px;
-  margin: auto;
-  border: 4px dashed #ff69b4;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-/* Ribbons */
-.ribbon, .ribbon2 {
-  position: absolute;
-  background-color: #ff69b4;
-}
-
-.ribbon {
   width: 100%;
-  height: 8px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
 }
 
-.ribbon2 {
-  width: 8px;
-  height: 100%;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
+.coming-soon-content h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
 
-/* Text Styling */
-.app-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #333;
-  margin-top: 2rem;
-  line-height: 1.4;
-  text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+.coming-soon-content p {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-/* Animation */
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px #ff69b4;
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1.2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.coming-soon-footer {
+  color: #b0c4de;
+  font-size: 1rem;
+  margin-top: auto;
+  padding: 1.5rem 0 0.5rem 0;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .coming-soon-content {
+    padding: 2rem 1rem;
+    max-width: 95vw;
   }
-  to {
-    box-shadow: 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+  .coming-soon-content h1 {
+    font-size: 2rem;
+  }
+  .coming-soon-content p {
+    font-size: 1rem;
   }
 }
