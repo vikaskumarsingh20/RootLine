@@ -2,52 +2,119 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Rubik', Arial, sans-serif;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: #0f2027;
   min-height: 100vh;
 }
 
-.coming-soon-container {
+.coming-soon-bg {
   min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 50%, #f7971e 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.coming-soon-content {
-  background: rgba(255,255,255,0.12);
-  border-radius: 24px;
+.coming-soon-bg::before,
+.coming-soon-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 0;
+}
+.coming-soon-bg::before {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  top: -100px;
+  left: -100px;
+}
+.coming-soon-bg::after {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
+  bottom: -120px;
+  right: -120px;
+}
+
+.coming-soon-glass {
+  z-index: 1;
+  background: rgba(255,255,255,0.13);
+  border-radius: 32px;
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 3rem 2.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2.5rem 2rem 2.5rem;
   text-align: center;
   margin: 2rem 1rem;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
+  animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
 }
 
-.coming-soon-content h1 {
-  font-size: 2.5rem;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.coming-soon-title {
+  font-size: 2.6rem;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  animation: textPop 1.2s cubic-bezier(.23,1.01,.32,1) both;
 }
 
-.coming-soon-content p {
+@keyframes textPop {
+  0% { letter-spacing: 0; opacity: 0; transform: scale(0.8);}
+  100% { letter-spacing: 2px; opacity: 1; transform: scale(1);}
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #f7971e 0%, #ffd200 50%, #2c5364 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coming-soon-desc {
   color: #e0e0e0;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.6;
+  animation: fadeIn 1.8s 0.3s both;
 }
 
-.loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #3498db;
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+.animated-loader {
+  margin: 0 auto 2.2rem auto;
+  width: 56px;
+  height: 56px;
+  border: 6px solid #fff3;
+  border-top: 6px solid #f7971e;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  animation: spin 1.2s linear infinite;
-  margin: 0 auto;
+  animation: spin 1.1s linear infinite;
+  box-shadow: 0 0 24px #f7971e44;
 }
 
 @keyframes spin {
@@ -55,25 +122,67 @@ body {
   100% { transform: rotate(360deg);}
 }
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  animation: fadeIn 2s 0.7s both;
+}
+
+.social-icons a {
+  color: #fff;
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 2px 12px #f7971e33;
+  font-size: 1.3rem;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15) rotate(-8deg);
+  background: linear-gradient(135deg, #ffd200 0%, #f7971e 100%);
+  box-shadow: 0 4px 24px #ffd20055;
+}
+
 .coming-soon-footer {
-  color: #b0c4de;
+  z-index: 2;
+  color: #fff;
   font-size: 1rem;
-  margin-top: auto;
-  padding: 1.5rem 0 0.5rem 0;
+  margin-top: 2.5rem;
+  padding: 1.2rem 0 0.5rem 0;
   text-align: center;
   width: 100%;
   letter-spacing: 1px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px #0f2027cc;
+  animation: fadeIn 2.2s 1s both;
+  position: relative;
 }
 
 @media (max-width: 600px) {
-  .coming-soon-content {
-    padding: 2rem 1rem;
-    max-width: 95vw;
+  .coming-soon-glass {
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
   }
-  .coming-soon-content h1 {
-    font-size: 2rem;
+  .coming-soon-title {
+    font-size: 1.5rem;
+    gap: 0.4rem;
   }
-  .coming-soon-content p {
+  .coming-soon-desc {
     font-size: 1rem;
+  }
+  .animated-loader {
+    width: 38px;
+    height: 38px;
+    border-width: 4px;
+  }
+  .social-icons svg {
+    width: 22px;
+    height: 22px;
   }
 }
