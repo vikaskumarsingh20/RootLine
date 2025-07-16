@@ -7,12 +7,12 @@ function App() {
       <div className="coming-soon-glass">
         <h1 className="coming-soon-title">
           <span>🚀</span>
-          <span className="gradient-text">We Are Coming Soon</span>
+          {/* <span className="gradient-text">We Are Coming Soon</span> */}
         </h1>
         <p className="coming-soon-desc">
-          We’re working hard to launch our website.<br />Stay tuned!
+        Coming soon.......<br />please  Stay tuned!
         </p>
-        <div className="animated-loader"></div>
+        {/* <div className="animated-loader"></div> */}
         <div className="social-icons">
           
           <a href="https://www.instagram.com/shri_vikeshananda/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
